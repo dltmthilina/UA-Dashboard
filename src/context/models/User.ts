@@ -1,11 +1,12 @@
-import { Timestamp } from "firebase/firestore"
+
 
 export default class AuthUser{
     
 email?:string;
-role?:string;
 password?:string;
 
-constructor(){}
+constructor(obj?: Partial<AuthUser>) {
+    Object.assign(this, obj);
+}
 
 }

@@ -1,9 +1,13 @@
 import InputBox from "components/InputBox";
+import { useStores } from "context/StoreContext";
 import { useFormik } from "formik"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 const LoginPage=()=>{
+
+    const {authStore} = useStores();
+    const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues:{
@@ -14,7 +18,12 @@ const LoginPage=()=>{
           
         }),
         onSubmit:async(values:any)=>{
-            
+           const res = await authStore.login(values)
+           if(res.status===200){
+                navigate("/")
+           }else{
+            navigate("/login")
+           }
         }
     })
 
@@ -22,12 +31,12 @@ const LoginPage=()=>{
     return(
     <div className="px-6 py-20 space-y-4  flex justify-center">
       
-        <form onSubmit={formik.handleSubmit} className="w-1/2 p-10">
+        <form onSubmit={formik.handleSubmit} className=" md:w-1/2 p-10">
             <div className="pt-10">
                 <h1 className=" text-4xl font-bold text-center">Login</h1>
             </div>
         
-            <div className=" space-y-6 mt-6 ">
+            <div className=" space-y-6 mt-6  ">
                 <InputBox
                     id="email"
                     value={formik.values.email}
@@ -52,7 +61,7 @@ const LoginPage=()=>{
                     <Link to={""} className=" text-[#5356FF] ">Forgot Password?</Link>
                 </div>
             </div>
-            <div className=" space-y-2 mt-20">
+            <div className=" space-y-2 mt-10">
                 <button type="submit" className="loginbtn">Sign In</button>
                
             </div>
