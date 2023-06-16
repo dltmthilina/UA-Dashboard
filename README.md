@@ -66,6 +66,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [ ] enter quotation data
 - [ ] enter advisor data
 - [x] enter meeting notes
+- [x] change status of meeting notes
 - [ ] background color of table cells may change according to   its data values
 - [ ] advisor can submit proposals
 - [ ] rm can review and update the weekly review state.
