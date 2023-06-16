@@ -1,0 +1,58 @@
+@import "primereact/resources/themes/lara-light-indigo/theme.css";
+@import "primereact/resources/primereact.min.css";
+@import "primeicons/primeicons.css";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+  }
+
+  .loginbtn{
+    @apply  bg-[#5356FF] text-white w-full rounded py-2
+  }
+
+  table{
+    table-layout: fixed;
+    @apply w-full border
+    
+  }
+  th, td{
+   @apply  border border-spacing-x-2 
+  }
+
+  th{
+    @apply p-4
+  }
+
+  .criteria{
+    @apply p-4
+  }
+
+  ol li{
+    display: list-item;
+    white-space:nowrap; 
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .recru_card_style{
+    @apply  flex justify-between px-4 
+  }
+
+  .quotandadvisor_card_style{
+    @apply  flex justify-between px-4 mt-2
+  }
+
+  .criteria_title{
+    @apply flex items-center space-x-2
+  }
+
+
+
